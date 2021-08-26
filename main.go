@@ -1,40 +1,110 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"io"
-	"io/fs"
+	tmpl "git.5th.im/long-bridge-algo/golang/micro-gen-go/template"
+	"html/template"
 	"os"
 	"path/filepath"
 	"strings"
 )
 
-func main() {
-	relativePath := "copy"
-	_ = filepath.Walk("./template", func(path string, info fs.FileInfo, err error) error {
-		targetPath := strings.Replace(path, "tt", relativePath, -1)
-		if info.IsDir() == true {
-			return nil
-		}
+type config struct {
+	// foo
+	Alias string
+	// github.com/micro/foo
+	Dir string
+	// $GOPATH/src/github.com/micro/foo
+	GoDir string
+	// $GOPATH
+	GoPath string
+	// UseGoPath
+	UseGoPath bool
+	// Files
+	Files []file
+	// Comments
+	Comments []string
+}
 
-		targetPath = filepath.Join("./", targetPath)
+type file struct {
+	Path string
+	Tmpl string
+}
 
-		// 获取文件文件的文件夹路径
-		dir := filepath.Dir(targetPath)
-		fmt.Printf("dir is %v\n", dir)
-		// 创建文件夹
+func Create(c config) error{
+	// check if dir exists
+	if _, err := os.Stat(c.Dir); !os.IsNotExist(err) {
+		return fmt.Errorf("%s already exists", c.Dir)
+	}
+
+	// write the files
+	for _, file := range c.Files {
+		f := filepath.Join(c.Dir, file.Path)
+		dir := filepath.Dir(f)
+
 		if _, err := os.Stat(dir); os.IsNotExist(err) {
 			if err := os.MkdirAll(dir, 0755); err != nil {
-				fmt.Println(err)
+				return err
 			}
 		}
+		if err := write(c, f, file.Tmpl); err != nil {
+			return err
+		}
+	}
+	return nil
+}
 
-		// 创建文件
-		targetFile, _ := os.Create(targetPath)
-		srcFile, _ := os.Open(path)
+func write(c config, file, tmpl string) error {
+	fn := template.FuncMap{
+		"title": func(s string) string {
+			return strings.ReplaceAll(strings.Title(s), "-", "")
+		},
+		"dehyphen": func(s string) string {
+			return strings.ReplaceAll(s, "-", "")
+		},
+		"lower": func(s string) string {
+			return strings.ToLower(s)
+		},
+	}
 
-		ret, err := io.Copy(targetFile, srcFile)
-		fmt.Printf("ret --- %v, err --- %v\n", ret, err)
-		return nil
-	})
+	f, err := os.Create(file)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	t, err := template.New("f").Funcs(fn).Parse(tmpl)
+	if err != nil {
+		return err
+	}
+
+	return t.Execute(f, c)
+}
+
+func main() {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("请输入项目名：")
+	projectName, err := reader.ReadString('\n')
+	if err != nil {
+		// ToDo
+		return
+	}
+
+	c := config{
+		Alias:     projectName,
+		Comments:  nil,
+		Dir:       projectName,
+		GoDir:     nil,
+		GoPath:    nil,
+		UseGoPath: false,
+		Files: []file{
+			{"README.md", tmpl.ReadmeSRV},
+			{".gitlab-ci.yml", tmpl.GitLabCiSRV},
+		},
+	}
+	err = Create(c)
+	if err != nil {
+		fmt.Printf("The error is %v\n", err)
+	}
 }

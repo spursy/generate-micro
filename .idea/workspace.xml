@@ -2,10 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb8b334f-c36d-48e0-89c6-b597b23c5145" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-bk.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/data/bindata/bindata.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/data/demo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/data/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/demo-data/demo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/exec/exec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/exec/m1/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/exec/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/file/m1/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/file/m1/source.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/file/m1/test/target.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/file/m2/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/file/m2/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/file/m2/test/test1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/file/m3/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/file/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/statik/statik.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/templates/m1/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/templates/m2/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/templates/m3/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/templates/m4/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/templates/m5/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-tool/templates/m6/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tt/demo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tt/demo/demo.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/cmd/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/template/cmd/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/template/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/template/template/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helper/file.go" beforeDir="false" afterPath="$PROJECT_DIR$/helper/file.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/.gitlab-ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/Dockerfile.builder" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/Dockerfile.builder" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/cmd/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/cmd/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/config/svc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/config/svc.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/deployments/canary-hk-eks-1-bi-golang-search-bj.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/deployments/canary-hk-eks-1-bi-golang-search-bj.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/deployments/prod-bj-bi-golang-search-bj-pre.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/deployments/prod-bj-bi-golang-search-bj-pre.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/deployments/prod-bj-bi-golang-search-bj.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/deployments/prod-bj-bi-golang-search-bj.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/deployments/test-bi-golang-search-bj.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/deployments/test-bi-golang-search-bj.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/pkg/business/demo.go" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/pkg/business/demo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/pkg/metrics/metrics.go" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/pkg/metrics/metrics.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/pkg/service/demo.go" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/pkg/service/demo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/proto/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/proto/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/proto/demo/demo.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/proto/demo/demo.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/proto/demo/demo.pb.micro.go" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/proto/demo/demo.pb.micro.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/proto/demo/demo.proto" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/proto/demo/demo.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/testtool/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/template-bk/testtool/client.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +60,7 @@
   </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/template" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
@@ -31,7 +77,19 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/template2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/template2" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/template" />
+      <recent name="$PROJECT_DIR$/test-tool/data/bindata" />
+      <recent name="$PROJECT_DIR$/test-tool/data" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/test-tool/data/data" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -39,5 +97,11 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="861" y="324" width="838" height="1032" key="search.everywhere.popup" timestamp="1629956715863">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="861" y="324" width="838" height="1032" key="search.everywhere.popup/0.0.2560.1440/2560.480.1536.960@0.0.2560.1440" timestamp="1629956715863" />
   </component>
 </project>

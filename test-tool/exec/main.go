@@ -1,4 +1,4 @@
-package helper
+package main
 
 import (
 	"os"
@@ -7,8 +7,8 @@ import (
 
 /*
 获取执行的目录
-*/
-func GetExPath() (string, error) {
+ */
+func Main() (string, error) {
 	ex, err := os.Executable()
 	if err != nil {
 		return "", err
