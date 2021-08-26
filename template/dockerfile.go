@@ -1,8 +1,11 @@
-FROM docker.longbridge-inc.com/long-bridge-algo/golang/algo-dispatcher/builder as builder
+package template
+
+var (
+	DockerFileSRV = `FROM {{lower .Alias}} as builder
 
 RUN mkdir /tmp/building
 
-COPY dispatcher /tmp/building/
+COPY . /tmp/building/
 
 RUN cd /tmp/building && \
   CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -ldflags="-w -s"  -o /app ./cmd/search/
@@ -16,3 +19,9 @@ COPY --from=builder /tmp/building/config /config
 WORKDIR /
 
 CMD [ "./app", "--server_address", "0.0.0.0:8080"]
+
+`
+)
+
+
+

@@ -1,20 +1,23 @@
-package main
+package template
+
+var (
+	MainSRV = `package main
 
 import (
 	"git.5th.im/lb-public/gear/cfg"
 	"git.5th.im/lb-public/gear/log"
 	microKit "git.5th.im/lb-public/gear/micro-kit"
 	"git.5th.im/lb-public/gear/micro-kit/wrapper/logger"
-	"git.5th.im/long-bridge-algo/golang/algo-dispatcher/pkg/metrics"
-	"git.5th.im/long-bridge-algo/golang/algo-dispatcher/pkg/service"
-	pb "git.5th.im/long-bridge-algo/golang/algo-dispatcher/proto/demo"
+	"{{.Alias}}/pkg/metrics"
+	"{{.Alias}}/pkg/service"
+	pb "{{.Alias}}/proto/demo"
 	"github.com/micro/cli"
 	"github.com/micro/go-micro"
 )
 
 func main() {
 	svc := microKit.NewService(
-		"lb.algo.demo",
+		"{{lower .Alias}}",
 		micro.WrapClient(logger.NewClientWrapper(
 			logger.WithAllReply(true),
 		)),
@@ -61,3 +64,8 @@ func main() {
 		log.Fatal(err)
 	}
 }
+`
+)
+
+
+

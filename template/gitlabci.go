@@ -7,7 +7,7 @@ var (
   - https://git.5th.im/open-source/ci-template/-/raw/master/templates/docker-login.yaml
 
 variables:
-  APP_NAME: module {{.Dir}}
+  APP_NAME: {{.Dir}}
 
 image: docker.longbridge-inc.com/long-bridge-core-system/core/golang-builder
 
@@ -98,7 +98,7 @@ deploy_devel_hk:
   extends: .deploy_template_v2
   variables:
     ENV: test
-    APP_NAME: bi-golang-novice-guide
+    APP_NAME: {{.Dir}}
     TAG: $CI_COMMIT_SHA
   only:
     - devel
@@ -108,7 +108,7 @@ deploy_canary_hk:
   extends: .deploy_template_v2
   variables:
     ENV: canary-hk-eks-1
-    APP_NAME: bi-golang-novice-guide
+    APP_NAME: {{.Dir}}
     TAG: $CI_COMMIT_SHA
   only:
     - canary
@@ -121,7 +121,7 @@ deploy_canary_hk_eks:
     - aws-hk-canary-v1          #不要修改
   variables:
     ENV: canary-hk-eks-1        #不要修改
-    APP_NAME: bi-golang-novice-guide
+    APP_NAME: {{.Dir}}
     TAG: $CI_COMMIT_SHA
   only:
     - eks-canary
@@ -130,7 +130,7 @@ deploy-pre-prod-bj:
   extends: .deploy_template_v2
   variables:
     ENV: prod-bj
-    APP_NAME: bi-golang-novice-guide-pre
+    APP_NAME: {{.Dir}}-pre
     TAG: $CI_COMMIT_SHA
   before_script:
     - export NAMESPACE=bi-pre
@@ -142,7 +142,7 @@ deploy_prod_bj:
   extends: .deploy_template_v2
   variables:
     ENV: prod-bj
-    APP_NAME: bi-golang-novice-guide
+    APP_NAME: {{.Dir}}
     TAG: $CI_COMMIT_SHA
   only:
     - master

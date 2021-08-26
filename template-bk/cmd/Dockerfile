@@ -2,7 +2,7 @@ FROM docker.longbridge-inc.com/long-bridge-algo/golang/algo-dispatcher/builder a
 
 RUN mkdir /tmp/building
 
-COPY dispatcher /tmp/building/
+COPY . /tmp/building/
 
 RUN cd /tmp/building && \
   CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -ldflags="-w -s"  -o /app ./cmd/search/

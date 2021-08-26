@@ -1,4 +1,7 @@
-### redis 配置
+package template
+
+var (
+	SvcSRV = `### redis 配置
 redis:
   host: tcp:127.0.0.1:6379
   database: 0
@@ -20,3 +23,8 @@ search:
   dbName: "bi_search_support"
   password: "ydoA8mpKhYjc2xlZNQzX"
   username: "root"
+`
+)
+
+
+

@@ -1,4 +1,7 @@
-package service
+package template
+
+var (
+	ServiceSRV = `package service
 
 import (
 	"context"
@@ -6,9 +9,9 @@ import (
 	"errors"
 	"git.5th.im/lb-public/gear/cfg"
 	microKit "git.5th.im/lb-public/gear/micro-kit"
-	bs "git.5th.im/long-bridge-algo/golang/algo-dispatcher/pkg/business"
-	"git.5th.im/long-bridge-algo/golang/algo-dispatcher/pkg/metrics"
-	pb "git.5th.im/long-bridge-algo/golang/algo-dispatcher/proto/demo"
+	bs "{{.Dir}}/pkg/business"
+	"{{.Dir}}/pkg/metrics"
+	pb "{{.Dir}}/proto/demo"
 	"github.com/demdxx/gocast"
 	"github.com/micro/go-micro/client"
 	"log"
@@ -73,3 +76,9 @@ func (h *Handler) GetDemo(ctx context.Context, req *pb.DemoRequest, resp *pb.Dem
 	}
 	return nil
 }
+
+`
+)
+
+
+

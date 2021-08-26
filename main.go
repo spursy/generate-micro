@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
-	tmpl "git.5th.im/long-bridge-algo/golang/micro-gen-go/template"
+	tmpl "git.5th.im/long-bridge-algo/golang/generate-micro/template"
 	"html/template"
 	"os"
 	"path/filepath"
@@ -86,6 +86,8 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("请输入项目名：")
 	projectName, err := reader.ReadString('\n')
+	// 去除换行符
+	projectName = strings.Replace(projectName, "\n", "", -1)
 	if err != nil {
 		// ToDo
 		return
@@ -95,12 +97,24 @@ func main() {
 		Alias:     projectName,
 		Comments:  nil,
 		Dir:       projectName,
-		GoDir:     nil,
-		GoPath:    nil,
+		//GoDir:     nil,
+		//GoPath:    nil,
 		UseGoPath: false,
 		Files: []file{
 			{"README.md", tmpl.ReadmeSRV},
 			{".gitlab-ci.yml", tmpl.GitLabCiSRV},
+			{"Dockerfile.builder", tmpl.BuilderSRV},
+			{"go.mod", tmpl.ModuleSRV},
+			{"proto/" + "/" + projectName + "/" + projectName + ".proto", tmpl.ProtoSRV},
+			{"proto/Makefile", tmpl.MakefileSRV},
+			{"cmd/Dockerfile", tmpl.DockerFileSRV},
+			{"cmd/main.go", tmpl.MainSRV},
+			{"config/svc.yaml", tmpl.SvcSRV},
+			{"deployments/test-"+ projectName +".yaml", tmpl.TestDeploymentSRV},
+			{"deployments/canary-hk-eks-1-"+ projectName +".yaml", tmpl.CanaryDeploymentSRV},
+			{"pkg/metrics/metrics.go", tmpl.MetricsSRV},
+			{"pkg/business/" + projectName +".go", tmpl.BusinessSRV},
+			{"pkg/service/" + projectName +".go", tmpl.ServiceSRV},
 		},
 	}
 	err = Create(c)

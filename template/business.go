@@ -1,10 +1,13 @@
-package business
+package template
+
+var (
+	BusinessSRV = `package business
 
 import (
 	"context"
 	"fmt"
 	"git.5th.im/lb-public/gear/cache"
-	pb "git.5th.im/long-bridge-algo/golang/algo-dispatcher/proto/demo"
+	pb "{{.Dir}}/proto/demo"
 )
 
 /**
@@ -42,3 +45,8 @@ func (bs *Business) Close() error {
 	_ = bs.Redis.Close()
 	return nil
 }
+`
+)
+
+
+

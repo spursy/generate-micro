@@ -1,3 +1,7 @@
+package template
+
+var (
+	MetricsSRV = `
 package metrics
 
 import (
@@ -9,7 +13,7 @@ var (
 	taskDurationsSummary = prometheus.NewSummaryVec(
 		prometheus.SummaryOpts{
 			Namespace: "bi",
-			Name:      "social_search_task_duration_microseconds",
+			Name:      "{{lower .Alias}}_task_duration_microseconds",
 			Help:      "Summary of the Task call duration in microseconds",
 			Objectives: map[float64]float64{
 				0.5:  0.05,
@@ -23,7 +27,7 @@ var (
 	taskCounter = prometheus.NewCounterVec(
 		prometheus.CounterOpts{
 			Namespace: "bi",
-			Name:      "social_search_data_task",
+			Name:      "{{lower .Alias}}_data_task",
 			Help:      "social search task execution status",
 		},
 		[]string{"task", "source", "status"},
@@ -79,3 +83,6 @@ func CountTask(taskName string, sourceName string, err error) {
 	}
 	taskCounter.WithLabelValues(taskName, sourceName, counterStatus).Inc()
 }
+`
+)
+

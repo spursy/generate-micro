@@ -1,7 +1,10 @@
-syntax = "proto3";
-package lb.algo.dispatcher;
+package template
 
-service AlgoDispatcher {
+var (
+	ProtoSRV = `syntax = "proto3";
+package {{dehyphen .Alias}};
+
+service {{title .Alias}}Dispatcher {
   // Demo
   rpc GetDemo(DemoRequest) returns (DemoListReply) {}
 }
@@ -20,3 +23,8 @@ message DemoObject {
   uint64 id = 1;
   string title = 2;
 }
+`
+)
+
+
+
