@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
-	tmpl "git.5th.im/long-bridge-algo/golang/generate-micro/template"
+	tmpl "github.com/spursy/generate-micro/template"
 	"html/template"
 	"os"
 	"path/filepath"
@@ -32,7 +32,7 @@ type file struct {
 	Tmpl string
 }
 
-func Create(c config) error{
+func Create(c config) error {
 	// check if dir exists
 	if _, err := os.Stat(c.Dir); !os.IsNotExist(err) {
 		return fmt.Errorf("%s already exists", c.Dir)
@@ -94,9 +94,9 @@ func main() {
 	}
 
 	c := config{
-		Alias:     projectName,
-		Comments:  nil,
-		Dir:       projectName,
+		Alias:    projectName,
+		Comments: nil,
+		Dir:      projectName,
 		//GoDir:     nil,
 		//GoPath:    nil,
 		UseGoPath: false,
@@ -110,11 +110,11 @@ func main() {
 			{"cmd/Dockerfile", tmpl.DockerFileSRV},
 			{"cmd/main.go", tmpl.MainSRV},
 			{"config/svc.yaml", tmpl.SvcSRV},
-			{"deployments/test-"+ projectName +".yaml", tmpl.TestDeploymentSRV},
-			{"deployments/canary-hk-eks-1-"+ projectName +".yaml", tmpl.CanaryDeploymentSRV},
+			{"deployments/test-" + projectName + ".yaml", tmpl.TestDeploymentSRV},
+			{"deployments/canary-hk-eks-1-" + projectName + ".yaml", tmpl.CanaryDeploymentSRV},
 			{"pkg/metrics/metrics.go", tmpl.MetricsSRV},
-			{"pkg/business/" + projectName +".go", tmpl.BusinessSRV},
-			{"pkg/service/" + projectName +".go", tmpl.ServiceSRV},
+			{"pkg/business/" + projectName + ".go", tmpl.BusinessSRV},
+			{"pkg/service/" + projectName + ".go", tmpl.ServiceSRV},
 		},
 	}
 	err = Create(c)

@@ -1,4 +1,4 @@
-module git.5th.im/long-bridge-algo/golang/generate-micro
+module github.com/spursy/generate-micro
 
 go 1.16
 
